@@ -1,18 +1,17 @@
-@page{
-    @bottom-center{
-        content:"Elite Hearing Network Annual Marketing Summary";
-    }
-}
 body {
-    overflow: visible;
+    overflow: hidden;
     height: auto;
 }
-
+::-webkit-scrollbar {
+    display: none;
+}
+.window-bar{
+     display: none;
+}
 .body-inner {
-    height: auto;
-    overflow: auto;
-    position: absolute;
-    top: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-top: -28px;
 }
 
 #view_goals,
@@ -20,9 +19,15 @@ body {
 #view_appointments,
 #view_strategy {
     display: block;
-    position: relative;
-    height: 7.75in;
-
+    width: 100vh;
+    height: 100vh;
+    transform: rotate(270deg);
+    overflow: hidden;
+    margin: auto;
+}
+.menu_tab{
+    page-break-inside : avoid;
+    page-break-before : always;
 }
 
 body * {
@@ -32,9 +37,7 @@ body * {
     overflow-y: visible;
 
 }
-.window_bar{
-    display: none;
-}
+
 .strategy_annbudget_input,
 .tab_title_wrapper,
 .col_mid_empty,
@@ -45,8 +48,11 @@ body * {
     border-color: white;
 }
 .main_header{
-    visibility: hidden;
-    height: 0;
+    display: none;
+}
+.tab_title{
+    padding-top: 0;
+    padding-bottom: 0;
 }
 .company_wrapper {
     visibility: visible;
@@ -92,9 +98,10 @@ body * {
 }
 .fixed-bottom {
     position: relative;
-    padding-bottom: 30px;
 }
-
+.add-row-cell{
+    display: none;
+}
 .strategy_annapp_input,
 * input {
     border-color: transparent;
@@ -117,51 +124,86 @@ body * {
     display: none;
 }
 
-#view_budget .col_month, #view_budget .col_month .fixed-bottom {
-    width: calc(56vw / 12);
-    min-width: 7px;
-    display: inline-block;
-    vertical-align: top;
-}
+
 #view_appointments .col_month, #view_appointments .col_month .fixed-bottom {
-    width: calc(45vw / 12);
+    width: calc(45vh / 12);
 }
 #view_appointments .monthly {
     display: inline-block;
-    width: 45vw;
+    width: 45vh;
 }
 #view_appointments .col_2 {
-    width: 45vw;
+    width: 45vh;
 }
 #view_appointments .col_3, #view_appointments .col_3 .fixed-bottom{
-    width: 8vw;
+    width: 8vh;
     min-width: 10px;
 }
 #view_appointments .col_4, #view_appointments .col_4 .fixed-bottom{
-    width: 5vw;
+    width: 5vh;
     min-width: 10px;
 }
 #view_appointments .col_5, #view_appointments .col_5 .fixed-bottom {
-    width: 6vw;
+    width: 7vh;
     min-width: 10px;
 }
 #view_appointments .col_5 input, #view_appointments .col_5 .fixed-bottom input{
     width: 92%
 }
 #view_appointments .col_6, #view_appointments .col_6 .fixed-bottom {
-    width: 8vw;
+    width: 8vh;
      min-width: 10px;
+}
+#view_appointments .col_6 .row_heading .tb_cell {
+    margin-right: 0;
+}
+#view_appointments .col_6 .tb_cell {
+    padding-right: 0;
+}
+#view_appointments .col_7, #view_appointments .col_7 .fixed-bottom {
+    width: 11vh;
+}
+#view_budget .col_month, #view_budget .col_month .fixed-bottom {
+    width: calc(58vh / 12);
+    min-width: 7px;
+    display: inline-block;
+    vertical-align: top;
 }
 #view_budget .col_2 input {
     text-align: center;
-    width: 73%;
+    width: 80%;
+}
+#view_budget .col_3{
+    width: 9vh;
+}
+#view_budget .col_4{
+    width: 15vh;
+}
+#view_budget .col_2,
+#view_budget .monthly{
+    width: 58vh;
+}
+#view_strategy .col_5 {
+    width: 23vh;
+}
+#view_strategy .col_4 {
+    width: 14vh;
+}
+#view_strategy .col_3 {
+    width: 22vh;
+}
+#view_strategy .col_2 {
+    width: 19vh;
+}
+#view_strategy .col_1 {
+    width: 21vh;
 }
 .print_title{
     vertical-align: middle;
 }
 .print_name{
-    font-size: 2vw;
+    font-size: 2vh;
 }
 .print_year{
-    font-size: 1.5vw;
+    font-size: 1.5vh;
 }

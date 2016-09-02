@@ -30,6 +30,7 @@
 .goals_row_3,
 .goals_row_5{
     padding: calc(2vh - 10px);
+    padding-top: 10px;
     white-space: nowrap;
 }
 .input_wrapper{
@@ -72,7 +73,7 @@
 }
 
 .open-pdf-etool-wrapper {
-    text-align: center;
+    text-align: left;
 }
 
 #open-pdf-etool {
@@ -160,11 +161,20 @@
 }
 .modal-window input,
 .modal-window input::-webkit-input-placeholder{
-    background: #b4b1dc;
+    background: none;
     border: none;
     color: rgba(255,255,255,0.8);
     height: 3.8vh;
     width: 7vw;
+}
+.modal-window .right-input-left {
+    border-bottom: 1px solid rgba(255,255,255,0.8);
+}
+.modal-window .input-bk {
+    background: rgba(255,255,255,0.2);
+}
+.modal-window .right-input {
+    text-align: right;
 }
 .modal-window .units-right:after{
     content: " Units"

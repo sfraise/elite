@@ -14,7 +14,8 @@
 </head>
 <body>
 <div class="window-bar">
-    <div id="window-bar-filename"></div>
+    <input type="hidden" id="saved-file-path" value="" />
+    <div id="window-bar-filename">New Document</div>
     <div class="window-bar-buttons">
         <div id="minimize-window" class="window-bar-button">
             <div class="window-bar-inner">
@@ -23,7 +24,7 @@
         </div>
         <div id="maximize-window" class="window-bar-button">
             <div class="window-bar-inner">
-                <img src="./images/maximize.png" alt="Maximize" />
+                <img id="window-max-col" src="./images/maximize.png" alt="Maximize" />
             </div>
         </div>
         <div id="close-window" class="window-bar-button close-window">
@@ -40,7 +41,12 @@
     <div id="inner_page_view">
         <div class="main_header">
             <div class="company_wrapper">
-                <input id="company_name" class="input_company_main no-border" type="text" value="" placeholder="Company Name" size="auto"><span class="edit"><img src="./images/edit.png" ></span>
+                <div class="company_wrapper_name">
+                    <input id="company_name" class="input_company_main no-border" type="text" value="" placeholder="Company Name" size="auto"><span class="edit"><img src="./images/edit.png" ></span>
+                </div>
+                <div id="company_year">
+                    NA
+                </div>
             </div>
             <div class="main_tabs_wrapper">
                 <div class="main_tabs">

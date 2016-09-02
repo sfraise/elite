@@ -5,6 +5,7 @@
 var remote = require('electron').remote;
 var dialog = remote.dialog;
 var fs = require('fs');
+const BrowserWindow = require('electron').remote.BrowserWindow;
 
 $(document).ready(function() {
     maximizeWindow();
@@ -20,6 +21,17 @@ $(document).ready(function() {
 
     $('.close-window').click(function() {
         closeWindow();
+    });
+
+    // SET MAXIMIZE BUTTON
+    $(window).on('resize', function(){
+        var isMaximized = BrowserWindow.getFocusedWindow().isMaximized();
+
+        if(isMaximized == true){
+            $('#window-max-col').attr('src','./images/collapse.png');
+        } else {
+            $('#window-max-col').attr('src','./images/maximize.png');
+        }
     });
 
     /*** MENU BUTTONS (OPEN/SAVE ITEMS IN SAVE-OPEN.JS) ***/
@@ -272,6 +284,9 @@ $(document).ready(function() {
         var data = $(this).attr('data');
         var modal = $(document).find("[class='modal-window'][data='" + data + "']");
 
+        // CLOSE TOOL TIPS IF OPEN
+        $('.tt-close').trigger('click');
+
         modal.fadeIn();
     });
 
@@ -310,7 +325,7 @@ $(document).ready(function() {
             $(elem).show()
         });
         //tab_title_right_wrapper
-        var name = $('#company_name').val();
+        var name = $('#start-company-name').val();
         var year = $('#start-plan-year').val();
 
         $('.tab_title_right_wrapper').append(

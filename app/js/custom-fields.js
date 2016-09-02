@@ -33,25 +33,25 @@ $(document).ready(function() {
             lastAnnbudgetEle = $('.strategy_annbudget_cell').last().parent();
             newAnnbudgetEle = lastAnnbudgetEle.clone().insertAfter(lastAnnbudgetEle);
             newAnnbudgetEle.find('.strategy_annbudget_cell').attr('class', 'tb_cell strategy_custom_annbudget_cell');
-            newAnnbudgetEle.find('.strategy_annbudget_input').attr('id', 'strategy_custom_' + newRowNum + '_annbudget');
+            newAnnbudgetEle.find('.strategy_annbudget_input').attr('id', 'strategy_custom_' + newRowNum + '_annbudget').val('');
 
             // ADD NEW CUSTOM ANNUAL APPOINTMENT GOAL COLUMN
             lastAnnappEle = $('.strategy_annapp_cell').last().parent();
             newAnnappEle = lastAnnappEle.clone().insertAfter(lastAnnappEle);
             newAnnappEle.find('.strategy_annapp_cell').attr('class', 'tb_cell strategy_custom_annapp_cell');
-            newAnnappEle.find('.strategy_annapp_input').attr('id', 'strategy_custom_' + newRowNum + '_annapp');
+            newAnnappEle.find('.strategy_annapp_input').attr('id', 'strategy_custom_' + newRowNum + '_annapp').val('');
 
             // ADD NEW CUSTOM ESTIMATED COST PER APPOINTMENT COLUMN
             lastEcpappEle = $('.strategy_ecpapp_cell').last().parent();
             newEcpappEle = lastEcpappEle.clone().insertAfter(lastEcpappEle);
             newEcpappEle.find('.strategy_ecpapp_cell').attr('class', 'tb_cell strategy_custom_ecpapp_cell');
-            newEcpappEle.find('.strategy_ecpapp_input').attr('id', 'strategy_custom_' + newRowNum + '_ecpapp');
+            newEcpappEle.find('.strategy_ecpapp_input').attr('id', 'strategy_custom_' + newRowNum + '_ecpapp').val('');
 
             // ADD NEW CUSTOM % OF BUDGET COLUMN
             lastPerbudgetEle = $('.strategy_perbudget_cell').last().parent();
             newPerbudgetEle = lastPerbudgetEle.clone().insertAfter(lastPerbudgetEle);
             newPerbudgetEle.find('.strategy_perbudget_cell').attr('class', 'tb_cell strategy_custom_perbudget_cell');
-            newPerbudgetEle.find('.strategy_perbudget_input').attr('id', 'strategy_custom_' + newRowNum + '_perbudget');
+            newPerbudgetEle.find('.strategy_perbudget_input').attr('id', 'strategy_custom_' + newRowNum + '_perbudget').val('');
         } else {
             var lastLabelInput = lastLabelEle.find(':input');
             var lastLabelInputSplit = lastLabelInput.attr('id').split('_');

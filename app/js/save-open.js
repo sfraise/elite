@@ -8,7 +8,7 @@ var fs = require('fs');
 
 $(document).ready(function() {
     /*** GET LATEST SAVED FILES ***/
-    //getLatestSaves(2);
+    getLatestSaves(2);
 
     /*** START NEW ***/
     $('#start-plan-submit').click(function() {
@@ -34,10 +34,6 @@ $(document).ready(function() {
         } else if(!lastYrRev) {
             lastYrRevEle.css('border', '1px solid red');
         } else {
-            // SET INITIAL VALUES
-            $('#company_name').val(companyName);
-            $('#company_year').html(planYear);
-
             // TRANSITION TO FORM
             $('#start_view').fadeOut();
             $('#inner_page_view').fadeIn();
@@ -46,16 +42,56 @@ $(document).ready(function() {
             if($('#tab_goals').attr('class') !== 'tab_text active_tab') {
                 $('.body-inner').css('height', 'calc(100vh - 56px)');
             }
+            resizeInput();
         }
     });
+    /*** EDIT COMPANY NAME***/
 
-    /*** SYNC START PAGE VALUES WITH INNER VALUES ***/
-    $('#start-company-name').on('keyup', function() {
-        $('#company_name').val($(this).val());
+    $('.edit').click(function () {
+        var isDisabled = $(this).prev("input").is(':disabled');
+        if (isDisabled) {
+            $(this).prev("input").prop('disabled', false);
+            $("#company_name").val($('#start-company-name').val());
+            $(this).prev("input").focus();
+        } else {
+            $(this).prev("input").focus();
+            $("#company_name").val($('#start-company-name').val());
+        }
+
     });
-    $('#company_name').on('keyup', function() {
+    /** Company Name **/
+
+    $("#company_name").on('blur',function () {
         $('#start-company-name').val($(this).val());
+
+        var nameElm = $('#company_name');
+        var companyName = nameElm.val();
+        nameElm.attr("title",companyName);
+
+        if (companyName.length > 15){
+            var shortName = companyName.substr(0,15);
+            nameElm.val(shortName + "...");
+        }else{
+            nameElm.val(companyName);
+        }
+        resizeInput();
+
     });
+    /*** SYNC START PAGE VALUES WITH INNER VALUES ***/
+    $('#start-company-name').on('blur', function() {
+        var startCompanyName = $(this).val();
+        var nameElm = $('#company_name');
+        nameElm.attr("title",startCompanyName);
+
+        if (startCompanyName.length > 15){
+            var shortName = startCompanyName.substr(0,15);
+            nameElm.val(shortName + "...");
+        }else{
+            nameElm.val(startCompanyName);
+        }
+        resizeInput();
+    });
+
     $('#start-plan-year').on('keyup', function() {
         $('#company_year').html($(this).val());
     });
@@ -63,6 +99,13 @@ $(document).ready(function() {
     /*** OPEN FILE ***/
     $('.open-button').click(function() {
         openFile();
+    });
+
+    $(document).on('click', '.start-latest-file-open', function() {
+        var filePath = $(this).parent().attr('data');
+        console.log(filePath);
+
+        openRecentFile(filePath);
     });
 
     /*** SAVE FILE ***/
@@ -97,8 +140,20 @@ $(document).ready(function() {
     });
 });
 
+function resizeInput() {
+    var companyNameElm =  $('#company_name')
+    var value = companyNameElm.val().length;
+    // set the size of the input based on the length of the input value
+    if (value > 0) {
+        $('#company_name').attr('size', value +1 );
+    } else {
+        $('#company_name').attr('size', 15);
+    }
+    companyNameElm.prop('disabled', true);
+}
 function getLatestSaves(limit) {
     var path = __dirname + '\\..\\';
+
     // READ THE SAVED FILE
     fs.readFile(path + 'data.txt', 'utf-8', function (err, data) {
         if(err) {
@@ -114,23 +169,28 @@ function getLatestSaves(limit) {
             var savedFiles = [];
 
             // ITERATE OVER DATA ARRAY
+            var filePathArr = [];
             for (var i = 0; i < dataArr.length; i++) {
                 // PARSE THE DATA
                 var obj = JSON.parse(dataArr[i]);
-
                 var filePath = obj.file;
-                var filename = filePath.replace(/^.*[\\\/]/, '');
-                var dateTime = new Date(obj.time);
-                var saveMonth = dateTime.getMonth() + 1;
-                var saveDate = dateTime.getDate();
-                var saveYear = dateTime.getFullYear();
-                var saveHours = dateTime.getHours();
-                var saveMinutes = dateTime.getMinutes();
-                var formattedDate = saveMonth + '/' + saveDate + '/' + saveYear + ' ' + saveHours + ':' + saveMinutes;
-                var latestFile = '<div class="start-latest-file-wrapper"><div class="start-latest-file" data="' + filePath + '">' + filename + '<span class="start-latest-file-open">OPEN</span></div></div>';
 
-                // STRINGIFY AND PUSH OBJECTS TO NEW ARRAY
-                JSON.stringify(savedFiles.push({"time": obj.time, "datetime": formattedDate, "value": latestFile}));
+                if($.inArray(filePath, filePathArr) == -1) {
+                    var filename = filePath.replace(/^.*[\\\/]/, '');
+                    var dateTime = new Date(obj.time);
+                    var saveMonth = dateTime.getMonth() + 1;
+                    var saveDate = dateTime.getDate();
+                    var saveYear = dateTime.getFullYear();
+                    var saveHours = dateTime.getHours();
+                    var saveMinutes = dateTime.getMinutes();
+                    var formattedDate = saveMonth + '/' + saveDate + '/' + saveYear + ' ' + saveHours + ':' + saveMinutes;
+                    var latestFile = '<div class="start-latest-file-wrapper"><div class="start-latest-file" data="' + filePath + '">' + filename + '<span class="start-latest-file-open">OPEN</span></div></div>';
+
+                    // STRINGIFY AND PUSH OBJECTS TO NEW ARRAY
+                    JSON.stringify(savedFiles.push({"time": obj.time, "datetime": formattedDate, "value": latestFile}));
+                }
+
+                filePathArr.push(filePath);
             }
 
             // SORT NEW ARRAY BY LAST SAVED
@@ -148,6 +208,7 @@ function getLatestSaves(limit) {
 
                     f++
                 } else {
+                    console.log('get latest fired over');
                     return false;
                 }
             });
@@ -157,6 +218,7 @@ function getLatestSaves(limit) {
 
 function saveFile() {
     var time = $.now();
+    var savedPath = $('#saved-file-path').val();
 
     // SET THE JSON OBJECT
     var obj = JSON.parse('[{"id": "save_time", "value": ' + time + '}]');
@@ -176,13 +238,17 @@ function saveFile() {
     obj = JSON.stringify(obj);
 
     // OPEN SAVE-AS DIALOG
-    dialog.showSaveDialog({ filters: [
-        { name: 'text', extensions: ['elite'] }
+    dialog.showSaveDialog({ defaultPath: savedPath, filters: [
+        {
+            name: 'text',
+            extensions: ['elite']
+        }
     ]}, function (fileName) {
         if (fileName === undefined) return;
         fs.writeFile(fileName, obj, function (err) {
             if(err) {
                 dialog.showErrorBox("File Save Error", err.message);
+                console.log(dialog.showErrorBox);
             } else {
                 var saveObj = [];
                 JSON.stringify(saveObj.push({"time": time, "file": fileName}));
@@ -190,9 +256,11 @@ function saveFile() {
                 saveObj = JSON.stringify(saveObj);
 
                 // SAVE TIME AND FILE PATH TO DATA FILE
-                fs.appendFile('./data.txt', saveObj, function (err) {
+                var path = __dirname + '\\..\\';
+                fs.appendFile(path + 'data.txt', saveObj, function (err) {
                     if(err) {
                         dialog.showErrorBox("File Save Log Error", err.message);
+                        console.log(dialog.showErrorBox);
                     }
                 });
 
@@ -242,6 +310,55 @@ function openFile() {
             // ADD FILENAME TO TOP BAR
             var filename = fileName.replace(/^.*[\\\/]/, '');
             $('#window-bar-filename').html(filename);
+            $('#saved-file-path').val(fileName);
+
+            // TRANSITION TO FORM
+            $('#start_view').fadeOut();
+            $('#inner_page_view').fadeIn();
+        });
+    });
+}
+
+function openRecentFile(filePath) {
+    dialog.showOpenDialog({ defaultPath: filePath, filters: [
+        { name: 'text', extensions: ['elite'] }
+    ]}, function (fileNames) {
+        if (fileNames === undefined) return;
+
+        // REMOVE ANY EXISTING CUSTOM ROWS
+        $('.remove-row').trigger('click');
+
+        var fileName = fileNames[0];
+        fs.readFile(fileName, 'utf-8', function (err, data) {
+            // PARSE THE DATA
+            var obj = JSON.parse(data);
+
+            // ITERATE OVER OBJECTS
+            $.each(obj, function() {
+                // CHECK FOR CUSTOM ROW
+                var startPatt = new RegExp("^strategy_custom");
+                var endPatt = new RegExp("_label$");
+                var startRes = startPatt.test(this.id);
+                var endRes = endPatt.test(this.id);
+
+                if(startRes == true && endRes == true) {
+                    // IF CUSTOM ADD NEW ROW
+                    $('.add-row').trigger('click');
+
+                    // NOW ROW IS ADDED FILL THE FIRST FIELD WITH THIS VALUE
+                    $('#' + this.id).val(this.value).trigger('keyup');
+
+                    // UPDATE CUSTOM LABELS
+                    $('.strategy_custom_label :input').trigger('keyup');
+                } else {
+                    $('#' + this.id).val(this.value).trigger('keyup');
+                }
+            });
+
+            // ADD FILENAME TO TOP BAR
+            var filename = fileName.replace(/^.*[\\\/]/, '');
+            $('#window-bar-filename').html(filename);
+            $('#saved-file-path').val(fileName);
 
             // TRANSITION TO FORM
             $('#start_view').fadeOut();
@@ -252,6 +369,7 @@ function openFile() {
 
 function emailSaveFile() {
     var time = $.now();
+    var savedPath = $('#saved-file-path').val();
 
     // SET THE JSON OBJECT
     var obj = JSON.parse('[{"id": "save_time", "value": ' + time + '}]');
@@ -268,7 +386,7 @@ function emailSaveFile() {
     obj = JSON.stringify(obj);
 
     // OPEN SAVE-AS DIALOG
-    dialog.showSaveDialog({ filters: [
+    dialog.showSaveDialog({ defaultPath: savedPath, filters: [
         { name: 'text', extensions: ['elite'] }
     ]}, function (filePath) {
         if (filePath === undefined) return;
@@ -282,7 +400,8 @@ function emailSaveFile() {
                 saveObj = JSON.stringify(saveObj);
 
                 // SAVE TIME AND FILE PATH TO DATA FILE
-                fs.appendFile('./data.txt', saveObj, function (err) {
+                var path = __dirname + '\\..\\';
+                fs.appendFile(path + 'data.txt', saveObj, function (err) {
                     if(err) {
                         dialog.showErrorBox("File Save Log Error", err.message);
                     }

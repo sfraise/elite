@@ -33,8 +33,10 @@ $(document).ready(function(){
     $('#start-last-year-revenue').on("keyup", function(){
         var number = $(this).val();
         var cl_num = clean_num(number);
-        $(this).val('$'+ addCommas(cl_num));
-        $('#last_rev').val('$'+ addCommas(cl_num))
+        if (cl_num > 0 ) {
+            $(this).val('$' + addCommas(cl_num));
+            $('#last_rev').val('$' + addCommas(cl_num))
+        }
     });
 
 //*** GOALS VIEW ***//
@@ -401,10 +403,9 @@ function addDecimal(keyCode,input) {
             numberStr = addCommas(cl_num) + ".";
 
             // if 0 is pressed                      //if number has decimal
-        } else if ((keyCode == 96 || keyCode == 48 ) && (input.indexOf('.00') != -1)) {
-
+        } else if ((keyCode == 96 || keyCode == 48 ) && (input.indexOf('.00') != -1) ) {
             numberStr = addCommas(cl_num) + ".00" ;
-        } else if ((keyCode == 96 || keyCode == 48 ) && (input.indexOf('.0') != -1)) {
+        } else if ((keyCode == 96 || keyCode == 48 ) && (input.indexOf('.0') != -1) )  {
 
             numberStr = addCommas(cl_num) + ".0";
         }else if(( keyCode ==8 || keyCode == 46) && (input.match(/\.$|\.%$/)) )  {
@@ -416,9 +417,14 @@ function addDecimal(keyCode,input) {
         }else if ((keyCode ==8 || keyCode == 46 ) &&(input.match(/\.00$|\.00%$/))) {
 
             numberStr = addCommas(cl_num) + ".00";
+
+        }else if(input.match(/\.[0-9][0-9][0-9]*$|\.[0-9][0-9][0-9]*%$/)){
+            cl_num = Math.round(cl_num * 100)/100;
+            numberStr = addCommas(cl_num);
         }else{
             numberStr = addCommas(cl_num);
         }
+
         return numberStr
     }
 }

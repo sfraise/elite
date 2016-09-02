@@ -109,6 +109,9 @@ input{
     height: 12px;
     margin-top: -2px;
 }
+.info.high img {
+    margin-top: -14px;
+}
 .tab_title_text .info img{
     vertical-align: top;
     padding: 12px 7px;
@@ -395,6 +398,7 @@ input{
     padding: 10px;
     text-transform: none;
     text-align: left;
+    z-index: 1;
 }
 
 .tt-close {
@@ -438,9 +442,6 @@ input{
 
 
 /*** VIEWS ***/
-#print{
-    display:none;
-}
 
 #start_view{
     background: url(../images/start-bk.jpg);
@@ -449,9 +450,6 @@ input{
 }
 #inner_page_view{
     display: none;
-}
-#inner_page_view{
-
 }
 #view_goals,
 #view_strategy,

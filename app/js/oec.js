@@ -164,7 +164,8 @@ $(document).ready(function() {
             $('#closingCurrent').val(addCommas(Math.round(closingCurrent)));
             $('#binauralCurrent').val(addCommas(Math.round(binauralCurrent)));
             $('#returnsCurrent').val(addCommas(Math.round(returnsCurrent)));
-            $('#totalCurrent').val("$" + addCommas(Math.round(totalCurrent * 100)/100));
+            totalCurrent = (Math.round(totalCurrent * 100)/100).toFixed(2);
+            $('#totalCurrent').val("$" + addCommas(totalCurrent));
 
             $('#leadsFuture').val(addCommas(Math.round(leads)));
             $('#callsFuture').val(addCommas(Math.round(callsFuture)));
@@ -175,10 +176,16 @@ $(document).ready(function() {
             $('#closingFuture').val(addCommas(Math.round(closingFuture)));
             $('#binauralFuture').val(addCommas(Math.round(binauralFuture)));
             $('#returnsFuture').val(addCommas(Math.round(returnsFuture)));
-            $('#totalFuture').val("$" + addCommas(Math.round(totalFuture * 100)/100));
+            totalFuture = (Math.round(totalFuture * 100)/100).toFixed(2);
+            $('#totalFuture').val("$" + addCommas(totalFuture));
 
-            $('#operationalEfficienciesRevenue').val("$" + addCommas(Math.round(operationalEfficienciesRevenue * 100)/100));
-            $('#op_eff_rev').val("$" + addCommas(Math.round(operationalEfficienciesRevenue * 100)/100));
+
+            var operationalEfficienciesRevenueFixed = (Math.round(operationalEfficienciesRevenue * 100)/100).toFixed(2);
+            //operationalEfficienciesRevenueFixed = operationalEfficienciesRevenueFixed.toFixed(2);
+
+            $('#operationalEfficienciesRevenue').val("$" + operationalEfficienciesRevenueFixed);
+            $('#op_eff_rev').val("$" + addCommas(operationalEfficienciesRevenueFixed));
+
             $('#op_eff_rev').trigger("keyup");
         }
     });
