@@ -1,0 +1,304 @@
+#view_budget .content_area {
+    /*margin-top: -40px;*/
+}
+
+#view_budget .col_wrap {
+    font-weight: 300;
+    display: inline-block;
+
+}
+
+.col_wrap .tb_cell {
+    font-size: 12px;
+}
+#view_budget .col_wrap .row_heading .tb_cell,
+#view_budget .col_wrap .row_heading2 .tb_cell{
+    font-size: 10px;
+}
+
+
+
+.col_quart {
+    font-size: 12px;
+}
+
+.year_wrap {
+    font-size: 12px;
+    background-color: #5c0f8b;
+    color: #ffffff;
+    padding: 4px;
+    text-align: center;
+    display: inline-block;
+    width: 90%;
+}
+
+#view_budget .col_quart,
+#view_budget .col_quart .fixed-bottom {
+    width: 25%;
+    display: inline-block;
+    vertical-align: top;
+}
+#view_budget .col_month,
+#view_budget .col_month .fixed-bottom {
+    width: calc(56vw / 6);
+    min-width: 77px;
+    display: inline-block;
+    vertical-align: top;
+}
+#view_budget .col_1,
+#view_budget .col_1 .fixed-bottom {
+    width: 18vw;
+    min-width: 160px;
+    display: inline-block;
+}
+
+#view_budget .col_2
+{
+    width: 56vw;
+    min-width: 460px;
+    display: inline-block;
+}
+#view_budget .col_2 .fixed-bottom{
+    width: 100%;
+    color: white;
+    -webkit-text-fill-color: white;
+}
+#view_budget .col_2 input{
+    text-align: center;
+    width: 50%;
+}
+#view_budget .col_2 .fixed-bottom input{
+    text-align: center;
+    width: 95%;
+}
+
+#view_budget .col_3,
+#view_budget .col_3 .fixed-bottom {
+    width: 10vw;
+    /*min-width: 117px;*/
+    display: inline-block;
+}
+
+#view_budget .col_4,
+#view_budget .col_4 .fixed-bottom {
+    width: 16vw;
+    /*min-width: 105px;*/
+    display: inline-block;
+}
+
+#view_budget .content_area .col_2 .row_heading .tb_cell {
+    font-size: 12px;
+}
+
+
+#view_budget .content_area .col_1 .fixed-bottom .totals,
+#view_budget .content_area .col_2 .fixed-bottom .totals,
+#view_budget .content_area .col_3 .fixed-bottom .totals,
+#view_budget .content_area .col_4 .fixed-bottom .totals {
+    padding-top: 22px;
+    padding-bottom: 22px;
+}
+
+#view_budget .content_area .col_2 .fixed-bottom .totals {
+    padding-right: 20px;
+}
+
+#view_budget .content_area .col_1 .tb_cell {
+    padding-left: 4vw;
+}
+
+#view_budget .content_area .col_4 .tb_cell {
+    padding-right: 4vw;
+}
+.col_top_empty{
+    height: 42px;
+}
+
+.col_top_content{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.col_wrap{
+    vertical-align: top;
+}
+.budget_q1_input,
+.budget_q2_input,
+.budget_q3_input,
+.budget_q4_input {
+    text-align: center;
+    width: 25%
+}
+#budget_total_q1,
+#budget_total_q2,
+#budget_total_q3,
+#budget_total_q4{
+    width: 95%;
+}
+.budget_total_budget_input,
+.budget_total_total_input,
+.budget_goal_diff_input,
+.budget_goal_diff_total_input{
+    text-align: center;
+    width: 100%
+}
+
+.budget_act_anncost_input,
+.budget_act_anncost_total_input,
+.budget_budget_input,
+.budget_budget_total_input,
+.budget_act_costper_budget_input,
+.budget_act_costper_budget_total_input{
+    text-align: right;
+}
+#view_budget input {
+    width: 100%;
+    max-width: 80px;
+}
+.monthly_q1,
+.monthly_q2,
+.monthly_q3,
+.monthly_q4{
+    display: inline-block;
+}
+#view_budget .monthly{
+    display: inline-block;
+    width: 56vw;
+    min-width: 460px;
+    overflow: hidden;
+}
+#view_budget .tool_tip_wrapper{
+    display: inline-block;
+    vertical-align: bottom;
+}
+#budget_total_total_budget,
+#budget_total_goal_diff,
+.budget_budget_total,
+.budget_budget_diff{
+    text-align: right;
+}
+#view_budget .col_4 .row_heading .tb_cell{
+    vertical-align: bottom;
+    margin-right: -13px;
+}
+#view_budget .col_4 .tb_cell{
+    padding-right: 13px;
+}
+
+/*************************************************/
+.btn_monthly,
+.btn_quarterly{
+    cursor: pointer;
+}
+.budget_tb{
+    /*display: table;*/
+    border-collapse: collapse;
+}
+.budget_tb .tb_row{
+    display: table-row;
+}
+.budget_tb .tb_cell{
+    display: table-cell;
+    min-width: 150px;
+    vertical-align: middle;
+    height: 32px;
+}
+.budget_tb .budget_tb_right .tb_cell input{
+    width: 75px;
+}
+
+.row_heading .tb_cell .text1,
+.row_heading .tb_cell .arrow-left,
+.row_heading .tb_cell .arrow-right,
+.row_heading .tb_cell .budget_tot_cell{
+     display:inline-block;
+
+ }
+.row_heading .tb_cell .arrow-left{
+    text-align: right;
+}
+
+.budget_tb_center .tb_cell{
+     text-align: right;
+    padding-right: 5px;
+}
+.budget_tb_center .tb_cell input{
+    text-align: right;
+    width: 75px;
+    border-style: solid;
+    border-color: #eeeeef;
+}
+.outer_table_wrapper{
+    position: relative;
+}
+.budget_tb_left{
+    position: absolute;
+    top: 30px;
+    left: 0;
+}
+.budget_tb_left .tb_cell{
+    /*width: 200px;*/
+    padding-left: 4vw;
+}
+.budget_tb_center{
+    position: relative;
+    margin-top: -30px;
+    overflow-x: scroll;
+    margin-left: 190px;
+    margin-right: 300px;
+    /*min-width: 500px;*/
+}
+.tb_q_cell{
+    min-width: 450px;
+    height: 30px;
+    padding: 10px 20px;
+}
+
+.tb_quarterly{
+    background-color: #5c0f8b;
+    color: #ffffff;
+    padding: 4px;
+}
+.budget_tb_right{
+    position: absolute;
+    top: 30px;
+    right: 0;
+}
+.budget_tot_cell,
+.budget_diff_cell,
+.tot_tot_cell input,
+.tot_diff_cell input,
+.budget_tot_cell input,
+.budget_diff_cell input{
+    text-align: right;
+}
+
+.budget_tot_cell input,
+.budget_diff_cell input{
+    text-align: right;
+}
+.caption {
+    display: table-caption;
+    text-align: center;
+    padding-bottom: 8px;
+    white-space: nowrap;
+}
+.tb_quarterly_wrapper{
+    display: inline-block;
+    width: 21%;
+    margin-left: 70px;
+}
+.months_heading{
+    font-size: 13px;
+}
+
+.budget_tb_right .fixed-bottom .totals{
+    text-align: right;
+}
+.budget_tb_center::-webkit-scrollbar-track{
+    display: none;
+}
+.arrow-right,
+.arrow-left{
+    cursor: pointer;
+}

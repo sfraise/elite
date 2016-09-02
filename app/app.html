@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Elite Hearing Network Marketing Planner</title>
+    <link href="./css/fonts/fonts.css" rel="stylesheet" type="text/css">
+    <link href="./css/style.css" rel="stylesheet" type="text/css">
+    <link href="./css/start.css" rel="stylesheet" type="text/css">
+    <link href="./css/goals.css" rel="stylesheet" type="text/css">
+    <link href="./css/strategy.css" rel="stylesheet" type="text/css">
+    <link href="./css/budget.css" rel="stylesheet" type="text/css">
+    <link href="./css/appointments.css" rel="stylesheet" type="text/css">
+    <link href="./css/print.css" rel="stylesheet" type="text/css" media="print">
+</head>
+<body>
+<div class="window-bar">
+    <div id="window-bar-filename"></div>
+    <div class="window-bar-buttons">
+        <div id="minimize-window" class="window-bar-button">
+            <div class="window-bar-inner">
+                <img src="./images/minimize.png" alt="Close" />
+            </div>
+        </div>
+        <div id="maximize-window" class="window-bar-button">
+            <div class="window-bar-inner">
+                <img src="./images/maximize.png" alt="Maximize" />
+            </div>
+        </div>
+        <div id="close-window" class="window-bar-button close-window">
+            <div class="window-bar-inner">
+                <img src="./images/close.png" alt="Close" />
+            </div>
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<div class="body-inner">
+    <div id="messages"></div>
+    <div id="start_view" class="full-height"></div>
+    <div id="inner_page_view">
+        <div class="main_header">
+            <div class="company_wrapper">
+                <input id="company_name" class="input_company_main no-border" type="text" value="" placeholder="Company Name" size="auto"><span class="edit"><img src="./images/edit.png" ></span>
+            </div>
+            <div class="main_tabs_wrapper">
+                <div class="main_tabs">
+                    <div class="tab_text_wrapper">
+                        <div class="tab_text active_tab" id="tab_goals" data-view="view_goals">GOALS</div>
+                    </div>
+                    <div class="tab_text_wrapper">
+                        <div class="tab_text" id="tab_strategy" data-view="view_strategy">STRATEGY</div>
+                    </div>
+                    <div class="tab_text_wrapper">
+                        <div class="tab_text " id="tab_budget" data-view="view_budget">BUDGET</div>
+                    </div>
+                    <div class="tab_text_wrapper">
+                        <div class="tab_text" id="tab_appoint" data-view="view_appointments">APPOINTMENTS</div>
+                    </div>
+                </div>
+            </div>
+            <div class="main_header_menu">
+                <div class="main_header_menu_logo home-button">
+                    <img id="menu_logo" src="./images/logo.png" alt="Elite Hearing Network" />
+                </div>
+                <div id="main_header_menu_button">
+                    <div class="main_header_menu_button_inner">
+                        <img id="menu_open" src="./images/menu-icon.png" alt="Open Menu" />
+                        <img id="menu_close" src="./images/menu-close.png" alt="Close Menu" />
+                    </div>
+                </div>
+                <div id="main_header_menu_items">
+                    <div class="home-button main_header_menu_item">
+                        Home
+                    </div>
+                    <div class="open-button main_header_menu_item">
+                        Open
+                    </div>
+                    <div class="save-button main_header_menu_item">
+                        Save
+                    </div>
+                    <div class="email-button main_header_menu_item modal_link" data="modal_email">
+                        Email
+                    </div>
+                    <div class="print-button main_header_menu_item">
+                        Print
+                    </div>
+                    <div class="close-button main_header_menu_item close-window">
+                        Close
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="input_error"></div>
+        <div id="view_goals" class="menu_tab"></div>
+        <div id="view_strategy" class="menu_tab"></div>
+        <div id="view_budget" class="menu_tab"></div>
+        <div id="view_appointments" class="menu_tab"></div>
+
+        <!-- EMAIL MODAL -->
+        <div id="modal_email_wrapper" class="modal_window_wrapper" data="modal_email">
+            <div class="modal_window">
+                <div class="modal_window_top">
+                    <div class="modal_window_title">
+                        EMAIL
+                    </div>
+                    <div class="modal_window_close">
+                        X
+                    </div>
+                    <div class="clear:both;"></div>
+                </div>
+                <div class="modal_window_body">
+                    <div class="modal_email_address section">
+                        <div class="modal_email_input_wrapper">
+                            <input type="text" id="email_send_address" value="" placeholder="Email Address" />
+                        </div>
+                        <div class="modal_email_send_view section">
+                            <div id="email_send_button" class="submit_button">
+                                SEND
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal_email_file_view section">
+                        <div class="modal_email_file_save">
+                            Save Current Plan<br />
+                            <div id="email_save_button" class="submit_button">
+                                SAVE
+                            </div>
+                        </div>
+                        <div class="modal_email_file_open">
+                            Or Select Existing Plan<br />
+                            <div id="email_open_button" class="submit_button">
+                                BROWSE
+                            </div>
+                        </div>
+                        <div id="modal_email_file_selected">
+                        </div>
+                        <input type="hidden" id="email_file_path" value="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+<script>
+    // REQUIRED JS FILES
+    window.$ = window.jQuery = require('./js/jquery-3.1.0.min.js');
+    require('./renderer.js');
+    require('./js/menus.js');
+    require('./js/save-open.js');
+    require('./js/calc.js');
+    require('./js/custom-fields.js');
+    require('./js/oec.js');
+</script>
+</html>

@@ -1,0 +1,125 @@
+#view_strategy .col5{
+    font-size: 12px;
+    font-weight: 300;
+    display: inline-block;
+    vertical-align: top;
+}
+#view_strategy .col_1{
+    width: 21vw;
+    min-width: 135px;
+    display: inline-block;
+}
+#view_strategy .col_2{
+    width: 19vw;
+    min-width: 95px;
+    display: inline-block;
+}
+#view_strategy .col_3{
+    width: 22vw;
+    min-width: 135px;
+    display: inline-block;
+}
+#view_strategy .col_4{
+    width: 14vw;
+    min-width: 130px;
+    display: inline-block;
+}
+#view_strategy .col_5{
+    width: 24vw;
+    display: inline-block;
+}
+#view_strategy .col_5 .text1 {
+    padding-top: 11px;
+}
+
+#view_strategy .content_area  .col_1 .fixed-bottom .totals{
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+#view_strategy .content_area  .col_2 .fixed-bottom .totals,
+#view_strategy .content_area  .col_3 .fixed-bottom .totals,
+#view_strategy .content_area  .col_4 .fixed-bottom .totals,
+#view_strategy .content_area  .col_5 .fixed-bottom .totals{
+    padding-top: 22px;
+    padding-bottom: 22px;
+}
+#view_strategy .content_area .col_2 .fixed-bottom .totals{
+    padding-right: 20px;
+}
+
+#view_strategy .content_area  .col_1 .tb_cell{
+    position: relative;
+    padding-left: 4vw;
+}
+#view_strategy .content_area  .col_5 .tb_cell{
+    padding-right: 4vw;
+}
+
+.strategy_annbudget_input{
+    width: 70px;
+    text-align: center;
+    border-style: solid;
+    border-color: #eeeeef;
+}
+.strategy_annbudget_input_total,
+.strategy_annapp_input_total{
+    text-align: center;
+}
+.strategy_perbudget_input_total{
+    text-align: right;
+}
+#view_strategy .totals input{
+    font-size: 12px;
+    width: 95%;
+}
+.strategy_annapp_input{
+    width: 30px;
+    text-align: center;
+    border-style: solid;
+    border-color: #eeeeef;
+}
+.strategy_ecpapp_input{
+    text-align: right;
+    width: 95%;
+}
+.strategy_perbudget_input{
+    text-align: right;
+    width: 95%;
+}
+.strategy_custom_label input {
+    border-color: #eeeeef;
+    border-style: solid;
+}
+
+.remove-row {
+    cursor: pointer;
+}
+
+.add-row-cell {
+    background: none !important;
+}
+
+.add-row {
+    display: inline-block;
+    height: 10px;
+    cursor: pointer;
+}
+
+.remove-row img, .add-row img {
+    position: absolute;
+    top: 0;
+    left: 1vw;
+    bottom: 0;
+    margin: auto;
+    height: 50%;
+}
+#remaining_budget:disabled{
+    color: #5c0f8b;
+    -webkit-text-fill-color: #5c0f8b;
+    text-align: right;
+    font-size: 1.8vw;
+    width: 99%;
+}
+.remaining_budget_text{
+    color: #aeaeae;
+}

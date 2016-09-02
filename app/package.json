@@ -1,0 +1,14 @@
+{
+  "name": "elite-marketing-planner",
+  "productName": "Elite Marketing Planner",
+  "description": "Elite marketing planner",
+  "version": "1.0.0",
+  "author": "Tartan Marketing",
+  "copyright": "© 2016, Elite Hearing Network",
+  "homepage": "http://www.elitehearingnetwork.com/",
+  "license": "MIT",
+  "main": "background.js",
+  "dependencies": {
+    "fs-jetpack": "^0.9.0"
+  }
+}

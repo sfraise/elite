@@ -1,0 +1,205 @@
+
+#view_appointments .col_wrap {
+    font-weight: 300;
+    display: inline-block;
+
+}
+
+.col_wrap .tb_cell {
+    font-size: 12px;
+}
+#view_appointments .col_wrap .row_heading .tb_cell,
+#view_appointments .col_wrap .row_heading2 .tb_cell{
+    font-size: 10px;
+}
+
+
+
+.col_quart {
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.fixed-bottom .col_quart {
+    margin-top: 0;
+}
+
+.year_wrap {
+    font-size: 12px;
+    background-color: #5c0f8b;
+    color: #ffffff;
+    padding: 4px;
+    text-align: center;
+    display: inline-block;
+    width: 90%;
+}
+
+
+#view_appointments .col_quart,
+#view_appointments .col_quart .fixed-bottom {
+    width: 25%;
+    display: inline-block;
+    vertical-align: top;
+}
+#view_appointments .col_month,
+#view_appointments .col_month .fixed-bottom {
+    width: calc(28vw / 3);
+    display: inline-block;
+    vertical-align: top;
+}
+#view_appointments .col_1,
+#view_appointments .col_1 .fixed-bottom {
+    width: 18vw;
+    min-width: 160px;
+    display: inline-block;
+}
+
+#view_appointments .col_2
+{
+    width: 28vw;
+    min-width: 160px;
+    display: inline-block;
+}
+#view_appointments .col_2 .fixed-bottom{
+    width: 100%;
+    color: white;
+    -webkit-text-fill-color: white;
+}
+#view_appointments .col_2 input{
+    text-align: center;
+    width: 50%;
+}
+#view_appointments .col_2 .fixed-bottom input{
+    text-align: center;
+    width: 95%;
+}
+
+#view_appointments .col_3,
+#view_appointments .col_3 .fixed-bottom {
+    width: 13vw;
+    /*min-width: 117px;*/
+    display: inline-block;
+}
+
+#view_appointments .col_4,
+#view_appointments .col_4 .fixed-bottom {
+    width: 8vw;
+    /*min-width: 80px;*/
+    display: inline-block;
+}
+
+#view_appointments .col_5,
+ #view_appointments .col_5 .fixed-bottom {
+    width: 8vw;
+    display: inline-block;
+ }
+#view_appointments .col_6,
+#view_appointments .col_6 .fixed-bottom {
+    width: 13vw;
+    /*min-width: 105px;*/
+    display: inline-block;
+}
+#view_appointments .col_7,
+#view_appointments .col_7 .fixed-bottom {
+    width: 12vw;
+    /*min-width: 105px;*/
+    display: inline-block;
+}
+
+#view_appointments .content_area .col_2 .row_heading .tb_cell {
+    font-size: 12px;
+}
+
+
+#view_appointments .col_5 .text1 {
+    padding-top: 11px;
+}
+
+#view_appointments .content_area .col_1 .fixed-bottom .totals,
+#view_appointments .content_area .col_2 .fixed-bottom .totals,
+#view_appointments .content_area .col_3 .fixed-bottom .totals,
+#view_appointments .content_area .col_4 .fixed-bottom .totals,
+#view_appointments .content_area .col_5 .fixed-bottom .totals {
+    padding-top: 22px;
+    padding-bottom: 22px;
+}
+
+#view_appointments .content_area .col_2 .fixed-bottom .totals {
+    padding-right: 20px;
+}
+
+#view_appointments .content_area .col_1 .tb_cell {
+    padding-left: 2vw;
+}
+
+#view_appointments .content_area .col_7 .tb_cell {
+    padding-right: 4vw;
+}
+.col_top_empty{
+    height: 42px;
+}
+
+.col_top_content{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.col_wrap{
+    vertical-align: top;
+}
+.appoint_q1_input,
+.appoint_q2_input,
+.appoint_q3_input,
+.appoint_q4_input {
+    text-align: center;
+    width: 25%
+}
+#appoint_total_q1,
+#appoint_total_q2,
+#appoint_total_q3,
+#appoint_total_q4{
+    width: 95%;
+}
+.appoint_total_appoint_input,
+.appoint_total_total_input,
+.appoint_goal_diff_input,
+.appoint_goal_diff_total_input{
+    text-align: center;
+    width: 100%
+}
+
+.appoint_act_anncost_input,
+.appoint_act_anncost_total_input,
+.appoint_budget_input,
+.appoint_budget_total_input,
+.appoint_act_costper_appoint_input,
+.appoint_act_costper_appoint_total_input{
+    text-align: right;
+}
+#view_appointments input {
+    width: 92%;
+    max-width: 80px;
+}
+.monthly_q1,
+.monthly_q2,
+.monthly_q3,
+.monthly_q4{
+    display: inline-block;
+}
+#view_appointments .monthly{
+    display: inline-block;
+    width: 28vw;
+    overflow: hidden;
+}
+#view_appointments .tool_tip_wrapper{
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: -4px ;
+}
+#view_appointments .col_6 .row_heading .tb_cell{
+    vertical-align: bottom;
+    margin-right: -13px;
+}
+#view_appointments .col_6 .tb_cell{
+    padding-right: 13px;
+}
